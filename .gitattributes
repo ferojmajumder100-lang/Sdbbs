@@ -1,0 +1,8 @@
+# Force Linux line endings for the gradlew shell script
+gradlew text eol=lf
+
+# Force Windows line endings for the gradlew.bat script
+gradlew.bat text eol=crlf
+
+# Treat the wrapper jar as binary (do not normalize line endings)
+*.jar binary

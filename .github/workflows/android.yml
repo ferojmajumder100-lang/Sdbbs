@@ -25,6 +25,10 @@ jobs:
       - name: Grant Execute Permission to Gradlew
         run: chmod +x gradlew
 
+      - name: Fix and Regenerate Gradle Wrapper
+        run: |
+          gradle wrapper --gradle-version 9.3.1 --no-configuration-cache
+
       - name: Decode or Generate Debug Keystore
         run: |
           if [ -f debug.keystore.base64 ]; then

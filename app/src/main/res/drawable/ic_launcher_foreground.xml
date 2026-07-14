@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Message Dialog Outer Shell -->
+    <path
+        android:fillColor="#1F6FEB"
+        android:pathData="M24,32 h60 a8,8 0 0 1 8,8 v24 a8,8 0 0 1 -8,8 h-36 l-12,12 v-12 h-12 a8,8 0 0 1 -8,-8 v-24 a8,8 0 0 1 8,-8 z" />
+    <!-- Dynamic Inner Shield / Accent (Neon/Cyan) -->
+    <path
+        android:fillColor="#58A6FF"
+        android:pathData="M34,44 h40 v4 h-40 z" />
+    <path
+        android:fillColor="#58A6FF"
+        android:pathData="M34,54 h28 v4 h-28 z" />
+    <!-- Alert Icon representing customization / force status (Neon Warning Yellow) -->
+    <path
+        android:fillColor="#F0883E"
+        android:pathData="M70,52 h6 v6 h-6 z" />
+</vector>

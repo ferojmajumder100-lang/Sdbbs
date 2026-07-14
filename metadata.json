@@ -1,0 +1,6 @@
+{
+  "name": "Dex Dialog Builder",
+  "description": "An advanced dynamic dialog and toast injection system for Android app developers and modders. Allows you to build custom update dialogues, preview them on your device, host configuration files remotely on Pastebin/GitHub, and export injection ZIP packages consisting of integration codes and classes.dex files instantly.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -32,12 +32,28 @@ android {
         }
         create("debugConfig") {
             val keystoreFile = file("${rootDir}/debug.keystore")
-            if (keystoreFile.exists()) {
-                storeFile = keystoreFile
-                storePassword = "android"
-                keyAlias = "androiddebugkey"
-                keyPassword = "android"
+            if (!keystoreFile.exists()) {
+                println("debug.keystore not found. Generating a new one dynamically...")
+                try {
+                    ProcessBuilder(
+                        "keytool", "-genkey", "-v",
+                        "-keystore", keystoreFile.absolutePath,
+                        "-storepass", "android",
+                        "-alias", "androiddebugkey",
+                        "-keypass", "android",
+                        "-keyalg", "RSA",
+                        "-keysize", "2048",
+                        "-validity", "10000",
+                        "-dname", "CN=Android Debug,O=Android,C=US"
+                    ).inheritIO().start().waitFor()
+                } catch (e: Exception) {
+                    println("Failed to generate keystore: ${e.message}")
+                }
             }
+            storeFile = keystoreFile
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
         }
     }
 
@@ -49,12 +65,7 @@ android {
             signingConfig = signingConfigs.getByName("release")
         }
         debug {
-            val keystoreFile = file("${rootDir}/debug.keystore")
-            if (keystoreFile.exists()) {
-                signingConfig = signingConfigs.getByName("debugConfig")
-            } else {
-                signingConfig = signingConfigs.getByName("debug")
-            }
+            signingConfig = signingConfigs.getByName("debugConfig")
         }
     }
 
